@@ -1,5 +1,6 @@
 package com.example.envoyapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -17,7 +18,8 @@ class MainActivity : AppCompatActivity() {
             Log.d("MainActivity","Password: $password")
         }
         alredy_have_account_text_view_register.setOnClickListener {
-            Log.d("MainActivity","Try to show login activity")
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 }
