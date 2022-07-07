@@ -19,6 +19,7 @@ import java.sql.Timestamp
 class ChatLogActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatLogBinding
     val adapter = GroupieAdapter()
+    var user: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +27,7 @@ class ChatLogActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        val user = intent.getParcelableExtra<User>(NewMessageActivity.USER_KEY)
+        user = intent.getParcelableExtra<User>(NewMessageActivity.USER_KEY)
         supportActionBar?.title = user?.username
         binding.recyclerviewChatLog.adapter = adapter
         listenForMessages()
@@ -43,9 +44,10 @@ class ChatLogActivity : AppCompatActivity() {
                 if(chatMessage != null){
                     Log.d("ChatLogActivity",chatMessage.text)
                     if(chatMessage.fromId == FirebaseAuth.getInstance().uid){
-                        adapter.add(ChatToItem(chatMessage.text))
+                        val currentUser = LatestMessagesActivity.currentUser
+                        adapter.add(ChatToItem(chatMessage.text, currentUser!!))
                     }else{
-                        adapter.add(ChatFromItem(chatMessage.text))
+                        adapter.add(ChatFromItem(chatMessage.text,user!!))
                     }
                 }
 
@@ -83,9 +85,12 @@ class ChatLogActivity : AppCompatActivity() {
     }
 }
 
-class ChatFromItem(val text: String) : BindableItem<ChatFromRowBinding>() {
+class ChatFromItem(val text: String, val user: User) : BindableItem<ChatFromRowBinding>() {
     override fun bind(viewBinding: ChatFromRowBinding, position: Int) {
         viewBinding.textViewFromRow.text = text
+        val uri = user.profileImageUrl
+        Picasso.get().load(uri).into(viewBinding.circleImageviewFromRow)
+        viewBinding.circleImageviewFromRow
     }
 
     override fun getLayout(): Int {
@@ -97,9 +102,12 @@ class ChatFromItem(val text: String) : BindableItem<ChatFromRowBinding>() {
     }
 }
 
-class ChatToItem(val text: String) : BindableItem<ChatToRowBinding>() {
+class ChatToItem(val text: String, val user: User) : BindableItem<ChatToRowBinding>() {
     override fun bind(viewBinding: ChatToRowBinding, position: Int) {
         viewBinding.textviewToRow.text = text
+        val uri = user.profileImageUrl
+        Picasso.get().load(uri).into(viewBinding.circleImageviewToRow)
+        viewBinding.circleImageviewToRow
     }
 
     override fun getLayout(): Int {
