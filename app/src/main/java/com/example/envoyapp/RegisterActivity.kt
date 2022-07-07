@@ -57,8 +57,8 @@ class RegisterActivity : AppCompatActivity() {
     private fun performRegister() {
         val email = binding.emailEdittextRegister.text.toString()
         val password = binding.passwordEdittextRegister.text.toString()
-        if(email.isEmpty() || password.isEmpty()){
-            Toast.makeText(this,"Please enter text in username/email/password", Toast.LENGTH_SHORT).show()
+        if(email.isEmpty() || password.isEmpty() || selectedPhotoUri == null){
+            Toast.makeText(this,"Please enter text in username/email/password and add photo", Toast.LENGTH_SHORT).show()
             return
         }
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
