@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "428228676484",
+    "project_id": "envoyapp-e88e8",
+    "storage_bucket": "envoyapp-e88e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428228676484:android:346d4244670be856e0abd1",
+        "android_client_info": {
+          "package_name": "com.example.envoyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428228676484-c1upb1s2r8ie8kc26bfn1d7h0oqd3efr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACuYE6aeJwqeGUz6k28dosw-6cIJMja9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "428228676484-c1upb1s2r8ie8kc26bfn1d7h0oqd3efr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
