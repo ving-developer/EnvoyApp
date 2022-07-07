@@ -20,6 +20,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/selectedphoto_image_view_register"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/green_900"
+        app:layout_constraintBottom_toBottomOf="@+id/select_profile_photo_button_register"
+        app:layout_constraintEnd_toEndOf="@+id/select_profile_photo_button_register"
+        app:layout_constraintStart_toStartOf="@+id/select_profile_photo_button_register"
+        app:layout_constraintTop_toTopOf="@+id/select_profile_photo_button_register" />
+
     <EditText
         android:id="@+id/username_edittext_register"
         android:layout_width="0dp"
