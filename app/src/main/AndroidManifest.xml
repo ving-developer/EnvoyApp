@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EnvoyApp">
         <activity
-            android:name=".NewMessageActivity"
+            android:name=".ChatLogActivity"
             android:exported="false"
             android:parentActivityName=".LatestMessagesActivity"/>
+        <activity
+            android:name=".NewMessageActivity"
+            android:exported="false"
+            android:parentActivityName=".LatestMessagesActivity" />
         <activity
             android:name=".LatestMessagesActivity"
             android:exported="true">
