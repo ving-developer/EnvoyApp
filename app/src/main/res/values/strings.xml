@@ -3,4 +3,6 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
+    <string name="submit">Submit</string>
+    <string name="back_to_registration_textview_login">Back to registration</string>
 </resources>
