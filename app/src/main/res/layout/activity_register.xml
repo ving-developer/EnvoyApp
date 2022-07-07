@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/green_400"
     android:padding="@dimen/layout_padding"
-    tools:context=".MainActivity">
+    tools:context=".RegisterActivity">
 
     <Button
         android:id="@+id/select_profile_photo_button_register"
