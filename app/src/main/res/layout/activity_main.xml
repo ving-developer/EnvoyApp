@@ -8,20 +8,31 @@
     android:padding="@dimen/layout_padding"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/select_profile_photo_button_register"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="44dp"
+        android:text="Select Photo"
+        android:background="@drawable/select_profile_photo_rounded_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/username_edittext_register"
         android:layout_width="0dp"
         android:layout_height="@dimen/large_text_input_height"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/large_rounded_edittext_background"
         android:ems="10"
         android:hint="@string/username"
         android:inputType="textPersonName"
         android:padding="@dimen/large_text_input_padding"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/select_profile_photo_button_register" />
 
     <EditText
         android:id="@+id/email_edittext_register"
