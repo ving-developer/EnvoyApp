@@ -37,7 +37,9 @@ class ChatLogActivity : AppCompatActivity() {
     }
 
     private fun listenForMessages() {
-        val ref = FirebaseDatabase.getInstance().getReference("/messages")
+        val fromId = FirebaseAuth.getInstance().uid
+        val toId = user?.uid
+        val ref = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId")
         ref.addChildEventListener(object: ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 val chatMessage = snapshot.getValue(ChatMessage::class.java)
@@ -76,12 +78,16 @@ class ChatLogActivity : AppCompatActivity() {
         val fromId = FirebaseAuth.getInstance().uid
         val user = intent.getParcelableExtra<User>(NewMessageActivity.USER_KEY)
         val toId = user!!.uid
-        val reference = FirebaseDatabase.getInstance().getReference("/messages").push()
+        val reference = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId").push()
+        val toReference = FirebaseDatabase.getInstance().getReference("/user-messages/$toId/$fromId").push()
         if(fromId == null) return
         val chatMessage = ChatMessage(reference.key!!, text, fromId, toId, System.currentTimeMillis()/1000)
         reference.setValue(chatMessage).addOnSuccessListener {
             Log.d("ChatLogActivity","Message has been sent")
+            binding.edittextChatLog.text.clear()
+            binding.recyclerviewChatLog.scrollToPosition(adapter.itemCount - 1)
         }
+        toReference.setValue(chatMessage)
     }
 }
 
