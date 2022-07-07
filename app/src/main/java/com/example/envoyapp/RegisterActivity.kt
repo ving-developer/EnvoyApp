@@ -9,28 +9,31 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
+import com.example.envoyapp.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import  kotlinx.android.synthetic.main.activity_register.*
 import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityRegisterBinding
     var selectedPhotoUri: Uri? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        register_button_register.setOnClickListener {
+        binding.registerButtonRegister.setOnClickListener {
             performRegister();
         }
-        alredy_have_account_text_view_register.setOnClickListener {
+        binding.alredyHaveAccountTextViewRegister.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 
-        select_profile_photo_button_register.setOnClickListener {
+        binding.selectProfilePhotoButtonRegister.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
             startActivityForResult(intent, 0)
@@ -44,14 +47,14 @@ class RegisterActivity : AppCompatActivity() {
             Log.d("RegisterActivity","Photo was selected")
             selectedPhotoUri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver,selectedPhotoUri)
-            selectedphoto_image_view_register.setImageBitmap(bitmap)
-            select_profile_photo_button_register.alpha = 0f
+            binding.selectedphotoImageViewRegister.setImageBitmap(bitmap)
+            binding.selectProfilePhotoButtonRegister.alpha = 0f
         }
     }
 
     private fun performRegister() {
-        val email = email_edittext_register.text.toString()
-        val password = password_edittext_register.text.toString()
+        val email = binding.emailEdittextRegister.text.toString()
+        val password = binding.passwordEdittextRegister.text.toString()
         if(email.isEmpty() || password.isEmpty()){
             Toast.makeText(this,"Please enter text in username/email/password", Toast.LENGTH_SHORT).show()
             return
@@ -88,7 +91,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun saveUserToFirebaseDatabase(profileImageUrl: String) {
         val uid = FirebaseAuth.getInstance().uid ?: ""
         val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
-        val user = User(uid,username_edittext_register.text.toString(), profileImageUrl)
+        val user = User(uid,binding.usernameEdittextRegister.text.toString(), profileImageUrl)
         ref.setValue(user)
             .addOnSuccessListener {
                 Log.d("RegisterActivity", "User has been saved in Firebase Database")

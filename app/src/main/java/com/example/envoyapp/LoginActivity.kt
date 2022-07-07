@@ -4,16 +4,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
+import com.example.envoyapp.databinding.ActivityLoginBinding
+import com.example.envoyapp.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-        submit_button_login.setOnClickListener {
-            val email = email_edittext_login.text.toString()
-            val password = password_edittext_login.text.toString()
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        binding.submitButtonLogin.setOnClickListener {
+            val email = binding.emailEdittextLogin.text.toString()
+            val password = binding.passwordEdittextLogin.text.toString()
             Log.d("LoginActivity","Attempt login with email/pw $email/***")
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener {
@@ -25,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
                 };
         }
 
-        back_to_register_textview_login.setOnClickListener {
+        binding.backToRegisterTextviewLogin.setOnClickListener {
             finish()
         }
     }

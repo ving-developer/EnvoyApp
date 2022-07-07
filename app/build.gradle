@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-android-extensions'
 }
 
 apply plugin: 'com.android.application'
@@ -9,6 +8,10 @@ apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdk 32
+
+    viewBinding {
+        enabled = true
+    }
 
     defaultConfig {
         applicationId "com.example.envoyapp"
