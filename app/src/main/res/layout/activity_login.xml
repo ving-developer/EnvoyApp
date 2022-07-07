@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_light"
-    tools:context=".LoginActivity"
-    android:padding="@dimen/layout_padding">
+    android:background="@color/green_400"
+    android:padding="@dimen/layout_padding"
+    tools:context=".LoginActivity">
 
     <EditText
         android:id="@+id/editTextTextPersonName"
@@ -29,9 +29,9 @@
         android:layout_marginTop="8dp"
         android:background="@color/white"
         android:ems="10"
-        android:padding="@dimen/large_text_input_padding"
         android:hint="@string/password"
         android:inputType="textPassword"
+        android:padding="@dimen/large_text_input_padding"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
@@ -41,6 +41,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:backgroundTint="@color/teal_700"
         android:text="Submit"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
