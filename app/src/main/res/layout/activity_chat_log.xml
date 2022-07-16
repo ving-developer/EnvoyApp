@@ -43,7 +43,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/green_400"
+        android:background="@drawable/messaging_gray_background"
         app:layout_constraintBottom_toTopOf="@+id/edittext_chat_log"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
