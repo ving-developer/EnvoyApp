@@ -1,11 +1,12 @@
-package com.example.envoyapp
+package com.example.envoyapp.activities.messages
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView
+import com.example.envoyapp.R
+import com.example.envoyapp.User
 import com.example.envoyapp.databinding.ActivityNewMessageBinding
 import com.example.envoyapp.databinding.UserRowNewMessageBinding
 import com.google.firebase.database.DataSnapshot
@@ -13,7 +14,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
-import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieAdapter
 import com.xwray.groupie.viewbinding.BindableItem
 
@@ -50,7 +50,7 @@ class NewMessageActivity : AppCompatActivity() {
                 adapter.setOnItemClickListener {
                     item, view ->
                         val userItem = item as UserItem
-                        val intent = Intent(view.context,ChatLogActivity::class.java)
+                        val intent = Intent(view.context, ChatLogActivity::class.java)
                         intent.putExtra(USER_KEY,userItem.user)
                         startActivity(intent)
                         finish()

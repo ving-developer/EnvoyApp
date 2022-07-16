@@ -1,12 +1,11 @@
-package com.example.envoyapp
+package com.example.envoyapp.activities.usermanagement
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
+import com.example.envoyapp.activities.messages.LatestMessagesActivity
 import com.example.envoyapp.databinding.ActivityLoginBinding
-import com.example.envoyapp.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
@@ -23,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener {
                     if(!it.isSuccessful) return@addOnCompleteListener
-                    val intent = Intent(this,LatestMessagesActivity::class.java)
+                    val intent = Intent(this, LatestMessagesActivity::class.java)
                     startActivity(intent)
                 }
                 .addOnFailureListener {

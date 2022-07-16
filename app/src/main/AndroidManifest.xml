@@ -10,15 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EnvoyApp">
         <activity
-            android:name=".ChatLogActivity"
+            android:name=".activities.messages.ChatLogActivity"
             android:exported="false"
-            android:parentActivityName=".LatestMessagesActivity"/>
+            android:parentActivityName=".activities.messages.LatestMessagesActivity"/>
         <activity
-            android:name=".NewMessageActivity"
+            android:name=".activities.messages.NewMessageActivity"
             android:exported="false"
-            android:parentActivityName=".LatestMessagesActivity" />
+            android:parentActivityName=".activities.messages.LatestMessagesActivity" />
         <activity
-            android:name=".LatestMessagesActivity"
+            android:name=".activities.messages.LatestMessagesActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.usermanagement.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"

@@ -2,7 +2,6 @@ package com.example.envoyapp
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +9,8 @@ import android.os.Parcelable
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
+import com.example.envoyapp.activities.messages.LatestMessagesActivity
+import com.example.envoyapp.activities.usermanagement.LoginActivity
 import com.example.envoyapp.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase

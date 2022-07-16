@@ -1,20 +1,19 @@
-package com.example.envoyapp
+package com.example.envoyapp.activities.messages
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import com.example.envoyapp.User
 import com.example.envoyapp.databinding.*
+import com.example.envoyapp.views.ChatFromItem
+import com.example.envoyapp.views.ChatMessage
+import com.example.envoyapp.views.ChatToItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
-import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupieAdapter
-import com.xwray.groupie.viewbinding.BindableItem
-import java.sql.Timestamp
 
 class ChatLogActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatLogBinding
@@ -83,48 +82,13 @@ class ChatLogActivity : AppCompatActivity() {
         if(fromId == null) return
         val chatMessage = ChatMessage(reference.key!!, text, fromId, toId, System.currentTimeMillis()/1000)
         reference.setValue(chatMessage).addOnSuccessListener {
-            Log.d("ChatLogActivity","Message has been sent")
             binding.edittextChatLog.text.clear()
             binding.recyclerviewChatLog.scrollToPosition(adapter.itemCount - 1)
         }
         toReference.setValue(chatMessage)
+        val latestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId/$toId")
+        val latestMessageToRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$toId/$fromId")
+        latestMessageRef.setValue(chatMessage)
+        latestMessageToRef.setValue(chatMessage)
     }
-}
-
-class ChatFromItem(val text: String, val user: User) : BindableItem<ChatFromRowBinding>() {
-    override fun bind(viewBinding: ChatFromRowBinding, position: Int) {
-        viewBinding.textViewFromRow.text = text
-        val uri = user.profileImageUrl
-        Picasso.get().load(uri).into(viewBinding.circleImageviewFromRow)
-        viewBinding.circleImageviewFromRow
-    }
-
-    override fun getLayout(): Int {
-        return R.layout.chat_from_row
-    }
-
-    override fun initializeViewBinding(view: View): ChatFromRowBinding {
-        return ChatFromRowBinding.bind(view)
-    }
-}
-
-class ChatToItem(val text: String, val user: User) : BindableItem<ChatToRowBinding>() {
-    override fun bind(viewBinding: ChatToRowBinding, position: Int) {
-        viewBinding.textviewToRow.text = text
-        val uri = user.profileImageUrl
-        Picasso.get().load(uri).into(viewBinding.circleImageviewToRow)
-        viewBinding.circleImageviewToRow
-    }
-
-    override fun getLayout(): Int {
-        return R.layout.chat_to_row
-    }
-
-    override fun initializeViewBinding(view: View): ChatToRowBinding {
-        return ChatToRowBinding.bind(view)
-    }
-}
-
-class ChatMessage(val id: String, val text: String, val fromId: String, val toId: String, val timestamp: Long){
-    constructor(): this("","","","",-1)
 }
