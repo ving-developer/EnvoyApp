@@ -9,12 +9,13 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.envoyapp.R
 import com.example.envoyapp.RegisterActivity
 import com.example.envoyapp.User
+import com.example.envoyapp.databinding.ActivityLatestMessagesBinding
 import com.example.envoyapp.views.ChatMessage
 import com.example.envoyapp.views.LatestMessageRow
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupieAdapter
-import kotlinx.android.synthetic.main.activity_latest_messages.*
 
 class LatestMessagesActivity : AppCompatActivity() {
     companion object {
@@ -22,20 +23,35 @@ class LatestMessagesActivity : AppCompatActivity() {
     }
     val adapter = GroupieAdapter()
     val latestMessageMap = HashMap<String, ChatMessage>()
+    private lateinit var binding: ActivityLatestMessagesBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_latest_messages)
-        recyclerview_latest_messages.adapter = adapter
-        recyclerview_latest_messages.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+        binding = ActivityLatestMessagesBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        val toolbarFinded = binding.includeToolbarLatestMessage.appToolbar
+        setSupportActionBar(toolbarFinded)
+        binding.recyclerviewLatestMessages.adapter = adapter
+        binding.recyclerviewLatestMessages.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         adapter.setOnItemClickListener { item, view ->
             val row = item as LatestMessageRow
             val intent = Intent(this, ChatLogActivity::class.java)
             intent.putExtra(NewMessageActivity.USER_KEY,row.chatPartnerUser)
             startActivity(intent)
         }
-        fetchCurrentUser()
+        binding.floatingButtonLatestMessages.setOnClickListener{
+            val intent = Intent(this, NewMessageActivity::class.java)
+            startActivity(intent)
+        }
+        binding.includeToolbarLatestMessage.profileLogoToolbar.setOnClickListener{
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, RegisterActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
         verifyUserLoggedIn()
+        fetchCurrentUser()
         listendToLatestMessages()
     }
 
@@ -76,6 +92,11 @@ class LatestMessagesActivity : AppCompatActivity() {
         ref.addListenerForSingleValueEvent(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 currentUser = snapshot.getValue(User::class.java)
+                val imageUrl = currentUser?.profileImageUrl ?: ""
+                if(imageUrl.isNotEmpty()){
+                    Picasso.get().load(imageUrl).into(binding.includeToolbarLatestMessage.profileImageViewToolbar)
+                    binding.includeToolbarLatestMessage.profileLogoToolbar.alpha = 0f
+                }
             }
 
             override fun onCancelled(error: DatabaseError) { }
@@ -88,26 +109,5 @@ class LatestMessagesActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.nav_menu,menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.menu_new_message -> {
-                val intent = Intent(this, NewMessageActivity::class.java)
-                startActivity(intent)
-            }
-            R.id.menu_sign_out -> {
-                FirebaseAuth.getInstance().signOut()
-                val intent = Intent(this, RegisterActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 }

@@ -58,10 +58,32 @@ class RegisterActivity : AppCompatActivity() {
     private fun performRegister() {
         val email = binding.emailEdittextRegister.text.toString()
         val password = binding.passwordEdittextRegister.text.toString()
-        if(email.isEmpty() || password.isEmpty() || selectedPhotoUri == null){
-            Toast.makeText(this,"Please enter text in username/email/password and add photo", Toast.LENGTH_SHORT).show()
-            return
+        val username = binding.usernameEdittextRegister.text.toString()
+        var hasError = false
+        if(email.length < 6){
+            binding.layoutEmailEdittextRegister.isErrorEnabled = true
+            binding.layoutEmailEdittextRegister.error = "email must be valid e-mail"
+            hasError = true
+        }else{
+            binding.layoutEmailEdittextRegister.isErrorEnabled = false
         }
+        if(password.length < 6){
+            binding.layoutPasswordEdittextRegister.isErrorEnabled = true
+            binding.layoutPasswordEdittextRegister.error = "password must be longer than 6 characters"
+            hasError = true
+        }else{
+            binding.layoutPasswordEdittextRegister.isErrorEnabled = false
+        }
+        if(username.isEmpty()){
+            binding.layoutUsernameEdittextRegister.isErrorEnabled = true
+            binding.layoutUsernameEdittextRegister.error = "Username needs to be informed"
+            hasError = true
+        }else{
+            binding.layoutUsernameEdittextRegister.isErrorEnabled = false
+        }
+        if(hasError)
+            return
+
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
             .addOnCompleteListener {
                 if(!it.isSuccessful) return@addOnCompleteListener

@@ -5,4 +5,5 @@
     <string name="email">Email</string>
     <string name="submit">Submit</string>
     <string name="back_to_registration_textview_login">Back to registration</string>
+    <string name="add_new_message">Add new message</string>
 </resources>

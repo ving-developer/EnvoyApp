@@ -9,8 +9,13 @@
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
+    <color name="orange_500">#FAAC6C</color>
+    <color name="orange_700">#c47d3f</color>
+    <color name="yellow_500">#FFF212</color>
+    <color name="yellow_700">#c8c000</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="gray">#727376</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

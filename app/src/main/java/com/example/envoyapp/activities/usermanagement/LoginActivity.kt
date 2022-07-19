@@ -26,7 +26,10 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 .addOnFailureListener {
-                    Log.d("MainActivity", "Failed to create user ${it.message}")
+                    binding.layoutEmailEdittextLogin.isErrorEnabled = true
+                    binding.layoutEmailEdittextLogin.error = "Email incorrect"
+                    binding.layoutPasswordEdittextLogin.isErrorEnabled = true
+                    binding.layoutPasswordEdittextLogin.error = "Password incorrect"
                 };
         }
 

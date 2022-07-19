@@ -4,59 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_400"
+    android:background="@drawable/sign_in_login_background"
     android:padding="@dimen/layout_padding"
     tools:context=".activities.usermanagement.LoginActivity">
 
-    <EditText
-        android:id="@+id/email_edittext_login"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/large_text_input_height"
-        android:layout_marginTop="212dp"
-        android:background="@drawable/large_rounded_edittext_background"
-        android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:padding="@dimen/large_text_input_padding"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="99dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/ic_sign_in_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/gray" />
 
-    <EditText
-        android:id="@+id/password_edittext_login"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/large_text_input_height"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/large_rounded_edittext_background"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_email_edittext_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:padding="@dimen/large_text_input_padding"
-        app:layout_constraintEnd_toEndOf="@+id/email_edittext_login"
-        app:layout_constraintStart_toStartOf="@+id/email_edittext_login"
-        app:layout_constraintTop_toBottomOf="@+id/email_edittext_login" />
+        app:layout_constraintBottom_toTopOf="@+id/layout_password_edittext_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/email_edittext_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_password_edittext_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="170dp"
+        android:ems="10"
+        app:layout_constraintBottom_toTopOf="@+id/submit_button_login"
+        app:layout_constraintEnd_toEndOf="@+id/layout_email_edittext_login"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/layout_email_edittext_login">
+
+        <EditText
+            android:id="@+id/password_edittext_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/submit_button_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/large_rounded_button_background"
         android:text="@string/submit"
-        app:layout_constraintEnd_toEndOf="@+id/password_edittext_login"
-        app:layout_constraintStart_toStartOf="@+id/password_edittext_login"
-        app:layout_constraintTop_toBottomOf="@+id/password_edittext_login" />
+        app:layout_constraintBottom_toTopOf="@+id/back_to_register_textview_login"
+        app:layout_constraintEnd_toEndOf="@+id/layout_password_edittext_login"
+        app:layout_constraintStart_toStartOf="@+id/layout_password_edittext_login" />
 
     <TextView
         android:id="@+id/back_to_register_textview_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/back_to_registration_textview_login"
-        android:textColor="@color/white"
+        android:textColor="@color/orange_700"
+        android:padding="8dp"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/submit_button_login"
-        app:layout_constraintStart_toStartOf="@+id/submit_button_login"
-        app:layout_constraintTop_toBottomOf="@+id/submit_button_login" />
+        app:layout_constraintStart_toStartOf="@+id/submit_button_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
