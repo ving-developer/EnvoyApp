@@ -19,18 +19,31 @@ class LoginActivity : AppCompatActivity() {
         binding.submitButtonLogin.setOnClickListener {
             val email = binding.emailEdittextLogin.text.toString()
             val password = binding.passwordEdittextLogin.text.toString()
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
-                .addOnCompleteListener {
-                    if(!it.isSuccessful) return@addOnCompleteListener
-                    val intent = Intent(this, LatestMessagesActivity::class.java)
-                    startActivity(intent)
-                }
-                .addOnFailureListener {
-                    binding.layoutEmailEdittextLogin.isErrorEnabled = true
-                    binding.layoutEmailEdittextLogin.error = "Email incorrect"
-                    binding.layoutPasswordEdittextLogin.isErrorEnabled = true
-                    binding.layoutPasswordEdittextLogin.error = "Password incorrect"
-                };
+            var haserror = false
+            if(email.isEmpty()){
+                binding.layoutEmailEdittextLogin.isErrorEnabled = true
+                binding.layoutEmailEdittextLogin.error = "Email can't be blank"
+                haserror = true
+            }
+            if(password.isEmpty()){
+                binding.layoutPasswordEdittextLogin.isErrorEnabled = true
+                binding.layoutPasswordEdittextLogin.error = "Email can't be blank"
+                haserror = true
+            }
+            if(!haserror){
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
+                    .addOnCompleteListener {
+                        if(!it.isSuccessful) return@addOnCompleteListener
+                        val intent = Intent(this, LatestMessagesActivity::class.java)
+                        startActivity(intent)
+                    }
+                    .addOnFailureListener {
+                        binding.layoutEmailEdittextLogin.isErrorEnabled = true
+                        binding.layoutEmailEdittextLogin.error = "Email incorrect"
+                        binding.layoutPasswordEdittextLogin.isErrorEnabled = true
+                        binding.layoutPasswordEdittextLogin.error = "Password incorrect"
+                    };
+            }
         }
 
         binding.backToRegisterTextviewLogin.setOnClickListener {
