@@ -21,6 +21,15 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="Base.Widget.AppCompat.Button.WarnButton">
+        <item name="backgroundTint">@color/red_500</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="ProfileDialog" parent="Theme.AppCompat.Dialog">
+
+    </style>
+
     <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
         <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>

@@ -116,7 +116,8 @@ class RegisterActivity : AppCompatActivity() {
     private fun saveUserToFirebaseDatabase(profileImageUrl: String) {
         val uid = FirebaseAuth.getInstance().uid ?: ""
         val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
-        val user = User(uid,binding.usernameEdittextRegister.text.toString(), profileImageUrl)
+        val user = User(uid,binding.usernameEdittextRegister.text.toString(), profileImageUrl,
+            binding.statusEdittextRegister.text.toString())
         ref.setValue(user)
             .addOnSuccessListener {
                 Log.d("RegisterActivity", "User has been saved in Firebase Database")
@@ -131,6 +132,6 @@ class RegisterActivity : AppCompatActivity() {
 }
 
 @Parcelize
-class User(val uid: String, val username: String, val profileImageUrl: String): Parcelable {
-    constructor(): this("","","")
+class User(val uid: String, val username: String, val profileImageUrl: String, val status:String): Parcelable {
+    constructor(): this("","","","")
 }

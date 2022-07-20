@@ -10,9 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EnvoyApp">
         <activity
+            android:theme="@style/ProfileDialog"
+            android:excludeFromRecents="true"
+            android:name=".activities.usermanagement.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.messages.ChatLogActivity"
             android:exported="false"
-            android:parentActivityName=".activities.messages.LatestMessagesActivity"/>
+            android:parentActivityName=".activities.messages.LatestMessagesActivity" />
         <activity
             android:name=".activities.messages.NewMessageActivity"
             android:exported="false"
@@ -31,8 +36,7 @@
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

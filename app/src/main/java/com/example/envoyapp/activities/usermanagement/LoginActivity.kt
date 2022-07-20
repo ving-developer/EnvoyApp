@@ -24,11 +24,15 @@ class LoginActivity : AppCompatActivity() {
                 binding.layoutEmailEdittextLogin.isErrorEnabled = true
                 binding.layoutEmailEdittextLogin.error = "Email can't be blank"
                 haserror = true
+            }else{
+                binding.layoutEmailEdittextLogin.isErrorEnabled = false
             }
             if(password.isEmpty()){
                 binding.layoutPasswordEdittextLogin.isErrorEnabled = true
                 binding.layoutPasswordEdittextLogin.error = "Email can't be blank"
                 haserror = true
+            }else{
+                binding.layoutPasswordEdittextLogin.isErrorEnabled = false
             }
             if(!haserror){
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)

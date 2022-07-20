@@ -3,9 +3,8 @@ package com.example.envoyapp.activities.messages
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.recyclerview.widget.DividerItemDecoration
+import com.example.envoyapp.activities.usermanagement.ProfileActivity
 import com.example.envoyapp.R
 import com.example.envoyapp.RegisterActivity
 import com.example.envoyapp.User
@@ -45,9 +44,7 @@ class LatestMessagesActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.includeToolbarLatestMessage.profileLogoToolbar.setOnClickListener{
-            FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this, RegisterActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
         }
         verifyUserLoggedIn()

@@ -12,9 +12,9 @@
         android:id="@+id/imageView"
         android:layout_width="99dp"
         android:layout_height="45dp"
-        android:layout_marginStart="140dp"
         android:layout_marginTop="40dp"
         android:src="@drawable/ic_sign_up_text"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/gray" />
@@ -41,6 +41,26 @@
         app:layout_constraintStart_toStartOf="@+id/select_profile_photo_button_register"
         app:layout_constraintTop_toTopOf="@+id/select_profile_photo_button_register"
         app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="276dp"
+        android:id="@+id/layout_status_edittext_register"
+        android:layout_height="wrap_content"
+        app:counterEnabled="true"
+        app:counterMaxLength="24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_profile_photo_button_register">
+        <EditText
+            android:id="@+id/status_edittext_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lines="1"
+            android:background="@color/white"
+            android:maxLength="26"
+            android:hint="Status" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_username_edittext_register"
