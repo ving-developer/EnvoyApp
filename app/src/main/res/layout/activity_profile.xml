@@ -68,4 +68,15 @@
         app:layout_constraintStart_toStartOf="@+id/profile_logo_profile"
         style="@style/Base.Widget.AppCompat.Button.WarnButton"/>
 
+    <ImageView
+        android:id="@+id/close_button_profile"
+        android:layout_width="39dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/presence_offline" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

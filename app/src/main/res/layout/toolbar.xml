@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_toolbar"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
+    android:layout_height="80dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/latest_messages_toolbar_background"
+    android:background="@drawable/toolbar_background"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,11 +25,11 @@
             android:id="@+id/profile_logo_toolbar"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:src="@drawable/profile_icon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image_view_toolbar"

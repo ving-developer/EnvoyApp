@@ -24,6 +24,9 @@ class ProfileActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
+        close_button_profile.setOnClickListener {
+            finish()
+        }
         updateProfile()
     }
 

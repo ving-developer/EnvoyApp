@@ -9,8 +9,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_latest_messages"
-        android:layout_width="match_parent"
-        android:layout_height="678dp"
+        android:layout_width="0dp"
+        android:layout_height="677dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
