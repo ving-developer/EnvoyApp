@@ -1,49 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/app_toolbar"
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="80dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@drawable/toolbar_background"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="136dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_envoy_app_text_logo"
-            app:layout_constraintBottom_toBottomOf="@+id/profile_logo_toolbar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/profile_logo_toolbar" />
-
-        <ImageView
-            android:id="@+id/profile_logo_toolbar"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/profile_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image_view_toolbar"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:civ_border_color="@color/white"
-            app:civ_border_width="3dp"
-            app:layout_constraintBottom_toBottomOf="@+id/profile_logo_toolbar"
-            app:layout_constraintEnd_toEndOf="@+id/profile_logo_toolbar"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/profile_logo_toolbar"
-            app:layout_constraintTop_toTopOf="@+id/profile_logo_toolbar"
-            app:layout_constraintVertical_bias="0.0" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.appcompat.widget.Toolbar>
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>

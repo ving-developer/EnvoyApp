@@ -36,7 +36,7 @@
 
     <include
         android:id="@+id/include_toolbar_latest_message"
-        layout="@layout/toolbar"
+        layout="@layout/toolbar_latest_messages"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

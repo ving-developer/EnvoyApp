@@ -3,6 +3,7 @@ package com.example.envoyapp.activities.messages
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import com.example.envoyapp.User
 import com.example.envoyapp.databinding.*
 import com.example.envoyapp.views.ChatFromItem
@@ -25,6 +26,7 @@ class ChatLogActivity : AppCompatActivity() {
         binding = ActivityChatLogBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        setSupportActionBar(binding.includeToolbar.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         user = intent.getParcelableExtra<User>(NewMessageActivity.USER_KEY)
         supportActionBar?.title = user?.username
@@ -33,6 +35,15 @@ class ChatLogActivity : AppCompatActivity() {
         binding.sendButtonChatlog.setOnClickListener {
             performSendMessage()
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item?.itemId == android.R.id.home){
+            //Tratamos o clique no botão de voltar (<--)
+            finish()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun listenForMessages() {
