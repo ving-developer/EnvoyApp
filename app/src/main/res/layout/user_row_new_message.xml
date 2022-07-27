@@ -11,15 +11,29 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:textSize="16sp"
-        android:textColor="@color/black"
         android:text="Username"
-        app:layout_constraintBottom_toBottomOf="@+id/imageview_newmessage"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/status_textview_newmessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageview_newmessage"
         app:layout_constraintTop_toTopOf="@+id/imageview_newmessage"
-        app:layout_constraintVertical_bias="0.609" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/status_textview_newmessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Status"
+        android:textColor="@color/gray"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageview_newmessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageview_newmessage" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageview_newmessage"

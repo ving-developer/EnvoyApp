@@ -35,7 +35,6 @@ class NewMessageActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item?.itemId == android.R.id.home){
-            //Tratamos o clique no botão de voltar (<--)
             finish()
             return true
         }
@@ -78,6 +77,7 @@ class NewMessageActivity : AppCompatActivity() {
 class UserItem(val user: User) : BindableItem<UserRowNewMessageBinding>() {
     override fun bind(viewBinding: UserRowNewMessageBinding, position: Int) {
         viewBinding.usernameTextviewNewmessage.text = user.username
+        viewBinding.statusTextviewNewmessage.text = user.status
         Picasso.get().load(user.profileImageUrl).into( viewBinding.imageviewNewmessage)
     }
 
