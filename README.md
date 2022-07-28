@@ -4,12 +4,14 @@
   <br>
 </h1>
 
-[![Stable Version](https://poser.pugx.org/kartik-v/yii2-mpdf/v/stable)](https://packagist.org/packages/kartik-v/yii2-mpdf)
-[![Unstable Version](https://poser.pugx.org/kartik-v/yii2-mpdf/v/unstable)](https://packagist.org/packages/kartik-v/yii2-mpdf)
-[![License](https://poser.pugx.org/kartik-v/yii2-mpdf/license)](https://packagist.org/packages/kartik-v/yii2-mpdf)
-[![Total Downloads](https://poser.pugx.org/kartik-v/yii2-mpdf/downloads)](https://packagist.org/packages/kartik-v/yii2-mpdf)
-[![Monthly Downloads](https://poser.pugx.org/kartik-v/yii2-mpdf/d/monthly)](https://packagist.org/packages/kartik-v/yii2-mpdf)
-[![Daily Downloads](https://poser.pugx.org/kartik-v/yii2-mpdf/d/daily)](https://packagist.org/packages/kartik-v/yii2-mpdf)
+<div style="display: inline_block" align="center">
+<img style="border-radius:50px;" src="https://img.shields.io/github/downloads/ving-developer/EnvoyApp/total"/>
+  <img style="border-radius:50px;" src="https://img.shields.io/github/last-commit/ving-developer/EnvoyApp?style=flat&logo=github"/>
+  <img style="border-radius:50px;" src="https://img.shields.io/github/stars/ving-developer?logo=github&color=yellow"/>
+  <img style="border-radius:50px;" src="https://img.shields.io/badge/Linkedin-Henrique%20Barros-blue?style=flat&logo=linkedin"/>
+</div>
+
+<br/>
 
 A complete messaging application with Kotlin using [Firebase Authentication](https://firebase.google.com/docs/auth?hl=pt-br) for creating users, [Firebase Storage](https://firebase.google.com/docs/storage) for storing and accessing images, [Firebase Realtime Database](https://firebase.google.com/docs/database) for storing data and updating live on devices. EnvoyApp uses [hdodenhof/CircleImageView](https://github.com/hdodenhof/CircleImageView) to render images with rounded edges, [square/picasso](https://github.com/square/picasso) to load the content of images given a URL and load into an ImageView, and [lisawray/groupie](https://github.com/lisawray/groupie) to automatically configure RecyclerView adapters.
 <br>
