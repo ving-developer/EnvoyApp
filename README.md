@@ -5,10 +5,12 @@
 </h1>
 
 <div style="display: inline_block" align="center">
-<img style="border-radius:50px;" src="https://img.shields.io/github/downloads/ving-developer/EnvoyApp/total"/>
-  <img style="border-radius:50px;" src="https://img.shields.io/github/last-commit/ving-developer/EnvoyApp?style=flat&logo=github"/>
-  <img style="border-radius:50px;" src="https://img.shields.io/github/stars/ving-developer?logo=github&color=yellow"/>
-  <img style="border-radius:50px;" src="https://img.shields.io/badge/Linkedin-Henrique%20Barros-blue?style=flat&logo=linkedin"/>
+<img  src="https://img.shields.io/github/downloads/ving-developer/EnvoyApp/total"/>
+  <img src="https://img.shields.io/github/last-commit/ving-developer/EnvoyApp?style=flat&logo=github"/>
+  <img src="https://img.shields.io/github/stars/ving-developer?logo=github&color=yellow"/>
+  <a href="https://www.linkedin.com/in/henrique-barros-7b1812209/">
+    <img src="https://img.shields.io/badge/Linkedin-Henrique%20Barros-blue?style=flat&logo=linkedin"/>
+  </a>
 </div>
 
 <br/>
