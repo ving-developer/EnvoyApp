@@ -5,7 +5,6 @@
 </h1>
 
 <div style="display: inline_block" align="center">
-<img  src="https://img.shields.io/github/downloads/ving-developer/EnvoyApp/total"/>
   <img src="https://img.shields.io/github/last-commit/ving-developer/EnvoyApp?style=flat&logo=github"/>
   <img src="https://img.shields.io/github/stars/ving-developer?logo=github&color=yellow"/>
   <a href="https://www.linkedin.com/in/henrique-barros-7b1812209/">
